@@ -1,0 +1,60 @@
+#Content {
+    padding: 0;
+    margin: 0 0 0 200px;
+    border-left: 1px solid #82bddd;
+    background: #fff;
+}
+
+/* ======================================================== Panels / Sidebars */
+#Panel {float: left;margin: 0;width: 200px;border-top: 1px solid #82BDDD;border-right: 1px solid #82bddd;background: #dbf3fc;}
+#Panel div.Box {margin: 0;border: none;border-bottom: 1px solid #8bc1de;background: none;}
+#Panel div.Group {padding: 0;}
+
+div.Box h4 {font-size: 100%;font-weight: bold;margin: 0 0 4px;padding: 0 6px;color: #076C8E;text-shadow: #fff 0 1px 0;}
+div.Box h4 a {display: block;color: #045974;text-shadow: none;}
+div.Box h4 a:hover {color: #ff0084;text-shadow: none;}
+div.Box h4.Active {background: #045974;}
+div.Box h4.Active a {color: #fff;text-shadow: none;}
+
+#Panel div.Box h4 {padding: 0;margin: 0;background: url('/images/dashboard-sprites.png') 166px -145px no-repeat; }
+#Panel div.Dashboard h4 { background-position: 166px 7px; }
+#Panel div.Appearance h4 { background-position: 164px -1195px; }
+#Panel div.Users h4 { background-position: 162px -292px; }
+#Panel div.Forum h4 { background-position: 167px -442px; }
+#Panel div.Addons h4 { background-position: 166px -240px; }
+#Panel div.SiteSettings h4 { background-position: 164px -92px; }
+#Panel div.Import h4 { background-position: 164px -1139px; }
+div.Box dl {border-bottom: 1px solid #aedefc;background: #f0fbff; padding: 3px;font-size: 90%;overflow: hidden;}
+div.Box dl dt {float: left;width: 80px;color: #2786C2;}
+div.Box dl dd {margin-left: 80px;}
+div.Box p {font-size: 100%;padding: 0 0 4px;color: #555;}
+
+#Panel div.Active {background: #fff;}
+ul.PanelInfo {margin: 0 0 10px;}
+ul.PanelInfo li {padding: 0;font-size: 12px;}
+ul.PanelInfo li a {position: relative;}
+#Panel div.Box h4 {font-size: 14px;font-weight: bold;padding: 10px;color: #000;}
+
+ul.PanelInfo li a {font-size: 14px;color: #000;text-shadow: 0 0 0px #fff;display: block;padding: 2px 10px;}
+#Panel div.Box h4 a {color: #000;}
+
+span.New {
+	border-radius: 2px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	background: #ff0;
+	color: #000;
+	font-size: 9px;
+	font-weight: bold;
+	box-shadow: 0 1px 2px #333;
+	-moz-box-shadow: 0 1px 2px #333;
+	-webkit-box-shadow: 0 1px 2px #333;
+	padding:0px 2px;
+	position: relative;
+	top: -4px;
+	right: auto;
+}
+ul.PanelInfo li.Active {
+   background: url('/images/arrow.png') center left no-repeat #ffffff;
+}
+

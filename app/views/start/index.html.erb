@@ -1,0 +1,166 @@
+
+<div id="Nav">
+	<ul class="NavList">
+		<li class='first<% if @node.nil? %> current<% end %>'><a href='/'>首页</a></li>
+		<li<% if !@node.nil? && @node.id==1 %> class="current"<% end %>><a href='/house'>房产信息</a></li>
+		<li<% if !@node.nil? && @node.id==2 %> class="current"<% end %>><a href='/trade'>物品交易</a></li>
+		<li<% if !@node.nil? && @node.id==3 %> class="current"<% end %>><a href='/life'>生活服务</a></li>
+		<li<% if !@node.nil? && @node.id==4 %> class="current"<% end %>><a href='/business'>商务信息</a></li>
+		<li<% if !@node.nil? && @node.id==5 %> class="current"<% end %>><a href='/friends'>交友信息</a></li>
+		<li<% if !@node.nil? && @node.id==6 %> class="current"<% end %>><a href='/cars'>车辆买卖服务</a></li>
+		<li<% if !@node.nil? && @node.id==7 %> class="current"<% end %>><a href='/education'>教育培训</a></li>
+		<li<% if !@node.nil? && @node.id==8 %> class="current"<% end %>><a href='/play'>餐饮娱乐</a></li>
+	</ul>
+</div>
+<div class="clearfix">
+	<div id="Side">
+		<div class="box">
+			<div class="box_title">
+				<h4><a href="/posts">社区热帖</a></h4>
+			</div>
+			<ul class="box_item_list">
+				<% for post in @posts %>
+				<li><a href="<%= post.show_url %>" title="<%= post.title %>" target="_blank"><%= post.title %></a></li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="box">
+			<div class="box_title">
+				<h4>最新信息</h4>
+			</div>
+			<ul class="box_item_list">
+				<% for topic in @topics %>
+				<li><a href="<%= topic.show_url %>" title="<%= topic.show_url %>" target="_blank"><%= topic.title %></a></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+	<div id="Main">
+		<div class="clearfix">
+			<div class="flashpics">				
+				<div id="loopedSlider">
+					<div class="container">
+						<div class="slides">
+							<% for flashpic in @flashpics %>
+							<div>
+								<p class="featured-thumb">
+									<a href="#" target="_blank"><img src="<%= flashpic.image %>" alt="<%= flashpic.title %>" /></a>
+								</p>
+								<h2 class="entry-title">
+									<a href="<%= flashpic.url %>" target="_blank" title="<%= flashpic.title %>"><%= flashpic.title %></a>
+								</h2>
+							</div>
+							<% end %>
+						</div>
+					</div>
+					<ul class="pagination">
+						<% 1.upto @flashpics.length do |i| %>
+						<li><a href="#" rel="<%= i %>"><%= i %></a></li>
+						<% end %>
+					</ul>
+				</div>
+				<script type="text/javascript" charset="utf-8">
+					$(function(){
+						$('#loopedSlider').loopedSlider();
+					});
+				</script>
+			</div>
+			<div class="new_topics box">
+				<div class="box_title"><h4>热点新闻</h4></div>
+				<ul class="box_hot_news">
+					<% for topic in @news_topics %>
+					<li><a href="<%= topic.show_url %>" title="<%= topic.title %>" target="_blank"><%= topic.title %></a></li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+		<div class="box">
+			<div class="box_title"><h4>信息分类</h4></div>
+			<div class="clearfix">
+				<div class="box_categories">
+					<div class="box_c_title title_01"><a href="/house">房产信息</a></div>
+					<ul class="box_c_items">
+						<li><a href="/category/1">出租房</a> | <a href="/category/2">求租房</a></li>
+						<li><a href="/category/3">商铺出租</a></li>
+						<li><a href="/category/4">商铺求租</a></li>
+						<li><a href="/category/5">二手房出售</a></li>
+						<li><a href="/category/6">二手房求购</a></li>
+					</ul>
+				</div>
+				<div class="box_categories">
+					<div class="box_c_title title_02"><a href="/trade">物品交易</a></div>
+					<ul class="box_c_items">
+						<li><a href="/category/7">二手电脑</a> | <a href="/category/8">二手笔记本</a></li>
+						<li><a href="/category/9">手机/通讯相关</a></li>
+						<li><a href="/category/10">音响/乐器/影音</a></li>
+						<li><a href="/category/11">艺术/工艺/收藏品</a></li>
+					</ul>
+				</div>
+				<div class="box_categories">
+					<div class="box_c_title title_03"><a href="/life">生活服务</a></div>
+					<ul class="box_c_items">
+						<li><a href="/category/12">招聘</a> | <a href="/category/13">求职</a></li>
+						<li><a href="/category/14">家政</a> | <a href="/category/15">保洁</a> | <a href="/category/16">搬家</a></li>
+						<li><a href="/category/17">装修/装饰</a> | <a href="/category/18">家电维修</a></li>
+						<li><a href="/category/19">礼仪婚庆</a> | <a href="/category/20">写真/婚纱摄影</a></li>
+						<li><a href="/category/21">养生保健</a> | <a href="/category/22">送水/送气</a></li>
+						<li><a href="/category/23">订票/特价机票</a></li>
+					</ul>
+				</div>
+				<div class="box_categories">
+					<div class="box_c_title title_04"><a href="/business">商务信息</a></div>
+					<ul class="box_c_items">
+						<li><a href="/category/24">快递</a> | <a href="/category/25">喷绘招牌</a></li>
+						<li><a href="/category/26">设计</a> | <a href="/category/27">印刷</a> | <a href="/category/28">网站建设</a></li>
+						<li><a href="/category/29">招商加盟</a> | <a href="/category/30">物流货运</a></li>
+						<li><a href="/category/31">其他</a></li>
+					</ul>
+				</div>
+				<div class="box_categories">
+					<div class="box_c_title title_05"><a href="/friends">交友信息</a></div>
+					<ul class="box_c_items">
+						<li><a href="/category/32">找女友</a> | <a href="/category/33">找男友</a></li>
+						<li><a href="/category/34">女士征婚</a> | <a href="/category/35">男士征婚</a></li>
+						<li><a href="/category/36">兴趣交友</a> | <a href="/category/37">技能交换</a></li>
+						<li><a href="/category/38">寻人寻友</a> | <a href="/category/39">其它</a></li>
+					</ul>
+				</div>
+				<div class="box_categories">
+					<div class="box_c_title title_01"><a href="/cars">车辆买卖服务</a></div>
+					<ul class="box_c_items">
+						<li><a href="/category/40">二手汽车买卖</a> | <a href="/category/41">租车/代驾</a></li>
+						<li><a href="/category/42">带车求职</a> | <a href="/category/43">无车司机求职</a></li>
+						<li><a href="/category/44">自行车/摩托车/助动车买卖</a></li>
+						<li><a href="/category/45">汽修/保养</a> | <a href="/category/46">车辆配件</a></li>
+						<li><a href="/category/47">新车买卖</a> | <a href="/category/48">驾校/陪练</a></li>
+					</ul>
+				</div>
+				<div class="box_categories">
+					<div class="box_c_title title_02"><a href="/education">教育培训</a></div>
+					<ul class="box_c_items">
+						<li><a href="/category/49">家教</a> | <a href="/category/50">外语培训</a></li>
+						<li><a href="/category/51">文艺/体育</a></li>
+						<li><a href="/category/52">中小学教育</a></li>
+						<li><a href="/category/53">电脑/网络</a></li>
+					</ul>
+				</div>
+				<div class="box_categories">
+					<div class="box_c_title title_03"><a href="/play">餐饮娱乐</a></div>
+					<ul class="box_c_items">
+						<li><a href="/category/54">家常菜</a> | <a href="/category/55">咖啡厅</a></li>
+						<li><a href="/category/56">酒吧</a> | <a href="/category/57">KTV</a></li>
+						<li><a href="/category/58">美容美发</a> | <a href="/category/59">洗浴</a></li>
+						<li><a href="/category/60">棋牌室</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="FriendLinks" class="clearfix">
+	<div class="fl_title">友情链接</div>
+	<ul class="fl_list clearfix">
+		<li><a href="http://www.qtx.gov.cn/" target="_blank">青铜峡政务网</a></li>
+		<li><a href="http://www.nxqtx.cn/" target="_blank">青铜峡环保网</a></li>
+	</ul>
+</div>

@@ -1,0 +1,53 @@
+
+<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <span>注册</span></div>
+<div id="Side">
+	<div class="box">
+		<div class="box_title">已有账户？</div>
+		<div style="margin:20px 0 20px 20px;">请直接<a href="/login">登录</a></div>
+	</div>
+</div>
+<div id="Main">
+	<div class="box">
+		<div class="box_title">
+			<b>注册</b> 或者 <a href="login">登录</a>
+		</div>
+		<div style="padding:60px 0 120px 80px;">
+			<% if @user.errors.any? %>
+			<ul class="flash_errors">
+			<% @user.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+			<% end %>
+			<%= form_tag "/reg_rst", :method => "post" do %>
+				<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tbody>
+					<tr>
+						<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 邮　　箱：</td>
+						<td width="75%">
+							<%= text_field :user, :email, :class => "iInput", :maxlength => "200", :size => "28" %>
+						</td>
+					</tr>
+					<tr>
+						<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 用户名称：</td>
+						<td><%= text_field :user, :username, :class => "iInput", :size => "28" %></td>
+					</tr>
+					<tr>
+						<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 用户密码：</td>
+						<td><input type="password" name="user[password]" id="user_password" class="iInput" size="28" value=""></td>
+					</tr>
+					<tr>
+						<td height="50" align="right" style="font-size:14px;"><font color="red">*</font> 确认密码：</td>
+						<td><input type="password" name="user[password_confirmation]" id="user_password_confirmation" class="iInput" size="28" value=""></td>
+					</tr>
+					<tr>
+						<td height="45" align="right" style="font-size:14px;"></td>
+						<td>
+						<label><input name="submit" type="submit" style="padding:4px 20px;font-size:12px;" value="注 册"></label></td>
+					</tr>
+					</tbody>
+				</table>
+			<% end %>
+		</div>
+	</div>
+</div>

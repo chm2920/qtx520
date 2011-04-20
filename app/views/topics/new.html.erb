@@ -1,0 +1,110 @@
+<script type="text/javascript">
+function showcategories(n_id){
+	$('.select_categories').hide();
+	$('#categories_node_' + n_id).show();
+	$('.select_nodes a').removeClass('current');
+	$('#node_' + n_id).addClass('current');
+}
+$(document).ready(function(){
+	showcategories(1);
+});
+</script>
+<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <span>发布信息</span></div>
+<div id="Side">
+	<div class="box">
+		<div style="margin:20px 20px 20px 20px;line-height:20px;">
+		用户应在适当的栏目或地区发布信息，所发布信息内容必须真实可靠，用户对其自行发表、上传或传送的内容负全部责任。
+		</div>
+	</div>
+</div>
+<div id="Main">
+	<div class="box">
+	<%= form_tag "/publish_post", :multipart => true do %>
+		<div class="box_title clearfix"><h5>基本信息</h5>（注意：<font color="#FF0000">*</font>为必填项）</div>
+		<div style="margin:20px 0;">
+			<% if @topic.errors.any? %>
+			<ul class="flash_errors" style="margin:10px auto;">
+			<% @topic.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+			<% end %>
+			<table class="publish_tb">
+				<tr>
+					<td class="publish_tb_label"><font color="#FF0000">*</font>类别：</td>
+					<td>
+						<div class="select_nodes">
+							<%= @nodes.map{|n|"<a href='javascript:void(0);' id='node_#{n.id}' onclick='javascript:showcategories(#{n.id})'>#{n.name}</a>"}.join("").html_safe %>
+						</div>
+						<% for node in @nodes %>
+						<div id="categories_node_<%= node.id %>" class="select_categories clearfix" style="display:none;">
+							<% for category in node.categories %>
+							<span><input type="radio" name="topic[category_id]" id="topic_category_id" value="<%= category.id %>" /><%= category.name %></span>
+							<% end %>
+						</div>
+						<% end %>
+					</td>
+				</tr>
+				<tr>
+					<td class="publish_tb_label"><font color="#FF0000">*</font>地区：</td>
+					<td><select name="topic[city]" id="topic_city" class="pub_select">
+					<option value="">请选择所属地区</option>
+					<option value="小坝">小坝</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="publish_tb_label"><font color="#FF0000">*</font>标题：</td>
+					<td><input type="text" name="topic[title]" id="topic_title" class="pub_input" value="" /></td>
+				</tr>
+				<tr>
+					<td class="publish_tb_label"><font color="#FF0000">*</font>内容：</td>
+					<td><textarea name="topic[content]" id="topic_title" class="pub_text"></textarea></td>
+				</tr>
+				<tr>
+					<td class="publish_tb_label"><font color="#FF0000">*</font>有效期：</td>
+					<td><select name="topic[validate_date]" id="topic_validate_date" class="pub_select">
+					<option value="1">30天</option>
+					<option value="2">60天</option>
+					<option value="3">1年</option>
+					<option value="4">长期有效</option>
+					</select></td>
+				</tr>
+			</table>
+		</div>
+		<div class="box_title clearfix" style="border-top:1px solid #EBEBEB;"><h5>相关图片</h5> 支持上传的图片格式为png,jpg,gif,jpeg，图片大小不超过1M</div>
+		<div style="margin:20px 0;">
+			<ul class="topic_images_upload clearfix">
+			<% 0.upto 3 do |i| %>
+				<li>
+					<div class="img_preview"><img src="/images/nopic.gif" /></div>
+					<input type="file" name="topic_image[<%= i %>][image]" id="topic_image_<%= i %>_image" class="pub_file" />
+				</li>
+			<% end %>
+			</ul>
+		</div>
+		<div class="box_title clearfix" style="border-top:1px solid #EBEBEB;"><h5>联系方式</h5></div>
+		<div style="margin:20px 0;">
+			<table class="publish_tb">
+				<tr>
+					<td class="publish_tb_label2"><font color="#FF0000">*</font>联系人：</td>
+					<td><input type="text" name="topic[contact]" id="topic_contact" class="pub_input" value="" /></td>
+				</tr>
+				<tr>
+					<td class="publish_tb_label2"><font color="#FF0000">*</font>手机或电话：</td>
+					<td><input type="text" name="topic[phone]" id="topic_phone" class="pub_input" value="" /></td>
+				</tr>
+				<tr>
+					<td class="publish_tb_label2">电子邮件：</td>
+					<td><input type="text" name="topic[qq]" id="topic_qq" class="pub_input" value="" /> 选填</td>
+				</tr>
+				<tr>
+					<td class="publish_tb_label2">QQ：</td>
+					<td><input type="text" name="topic[email]" id="topic_email" class="pub_input" value="" /> 选填</td>
+				</tr>
+			</table>
+			<div style="padding:20px 0 20px 260px;"><input type="submit" name="submit" class="pub_submit" value="发 布" /></div>
+		</div>
+	<% end %>
+	</div>
+</div>

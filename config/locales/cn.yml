@@ -1,0 +1,61 @@
+cn:
+    too_big_file_error: "大小不能超过1M"
+    image_file_only: "支持上传的图片格式为png,jpg,gif,jpeg"
+    activerecord:
+        errors:
+            messages:
+                record_invalid: "校验失败: %{errors}"
+            models:
+                user:
+                    attributes:
+                        email:
+                            blank: "不能为空"
+                            taken: "已使用"
+                            invalid: "格式不正确"
+                        username:
+                            blank: "不能为空"
+                            too_short: "太短，不要少于%{count}个字符"
+                            too_long: "太长，不要超过%{count}个字符"
+                        password:
+                            blank: "不能为空"
+                            confirmation: "两次输入的%{attribute}不一致"
+                            too_short: "太短，不要少于%{count}个字符"
+                            too_long: "太长，不要超过%{count}个字符"
+                topic:
+                    attributes:
+                        node_id:
+                            blank: "找不到用户，请重新登录"
+                        category_id:
+                            blank: "不能为空"
+                        title:
+                            blank: "不能为空"
+                        content:
+                            blank: "不能为空"
+                        city:
+                            blank: "不能为空"
+                        validate_date:
+                            blank: "不能为空"
+                        contact:
+                            blank: "不能为空"
+                        phone:
+                            blank: "不能为空"
+                topic_image:
+                    attributes:
+                        image:
+                            blank: "不能为空"
+        attributes:
+            user:
+                email: "邮箱"
+                username: "用户名"
+                password: "密码"
+            topic:
+                node_id: "大类"
+                category_id: "分类"
+                title: "标题"
+                content: "内容"
+                city: "地区"
+                validate_date: "有效期"
+                contact: "联系人"
+                phone: "手机或电话"
+            topic_image:
+                image: "图片"

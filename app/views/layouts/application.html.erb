@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= @page_title + " - " if !@page_title.nil? %>青铜峡社区网 qtx520.com - 宁夏青铜峡</title>
+	<meta name="keywords" content="<% if @keywords.nil? %>青铜峡社区网,宁夏青铜峡,青铜峡,小坝,峡口<% else %><%= @keywords %><% end %>" />
+	<meta name="description" content="<% if @description.nil? %>青铜峡社区网(www.qtx520.com) 宁夏青铜峡<% else %><%= @description %><% end %>" />
+	<meta name="author" content="青铜峡社区网 | www.qtx520.com" />
+	<meta name="Copyright" content="Copyright (c) 2011-2012 qtx520.com" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+  <%= stylesheet_link_tag "common", "main" %>
+  <%= javascript_include_tag "jquery-1.3.2.min", "loopedslider" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+
+<div id="wapper">
+<div id="Container">
+	<div id="Top">
+		<div class="top_l"><a href="/">青铜峡社区网</a> - 宁夏青铜峡</div>
+		<div class="top_r">
+			<% if session[:username].nil? %>
+			您好，欢迎光临&nbsp;
+			<a href="/login">[请登录]</a>
+			<a href="/reg">[注册]</a>|&nbsp;<a href="/publish">立即发布信息</a>
+			<% else %>
+			欢迎您，<a><%= session[:username] %></a><a href="/logout">[退出]</a>|&nbsp;<a href="/publish">立即发布信息</a>
+			<% end %>
+		</div>
+	</div>
+	<div id="Header" class="clearfix">
+		<div class="logo">
+			<a href="/"><img src="/images/logo.png" /></a>
+		</div>
+		<div class="head_txt">青铜峡社区生活服务,让生活更便利。</div>
+		<ul class="MainNav">
+			<li><a href="/news">新闻</a></li>
+			<li><a href="/posts">社区</a></li>
+			<!--li><a href="/questions">帮帮</a></li>
+			<li><a href="/gifts">礼物</a></li-->
+		</ul>
+	</div>
+	<div id="PageBody" class="clearfix">
+		<%= yield %>
+	</div>
+	<div id="Footer">
+		<div id="Foot">
+			Copyright &copy; 2011-2012 Qtx520.com 版权所有 QQ: 395693519
+		</div>
+	</div>
+</div>
+</div>
+
+</body>
+</html>

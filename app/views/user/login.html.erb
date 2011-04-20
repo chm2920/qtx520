@@ -1,0 +1,60 @@
+<style>
+.iInput{padding:4px 6px;font-size:12px;width:200px;}
+
+.flash_errors{border: thin solid #8b0000;background: #ffc0cb;padding:15px 20px;width:500px;}
+	.flash_errors li{}
+.flash_info{border: thin solid #ff0;background: #ffe;}
+.flash_warning {border: thin solid #b8860b;background: #ff0;}
+</style>
+<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <span>登录</span></div>
+<div id="Side">
+	<div class="box">
+		<div class="box_title">还没有账户？</div>
+		<div style="margin:20px 0 20px 20px;">立即<a href="/reg">注册</a>，仅需30秒！</div>
+	</div>
+</div>
+<div id="Main">
+	<div class="box">
+		<div class="box_title">
+			<b>登录</b> 或者 <a href="/reg">注册</a>
+		</div>
+		<div style="padding:60px 0 120px 80px;">
+			<% if !flash[:notice].nil? %>
+			<ul class="flash_errors">
+				<li><%= flash[:notice] %></li>
+			</ul>
+			<% end %>
+			<%= form_tag "/login_rst" do %>
+			<table style="width:500px;font-size:14px;margin-top:20px" border="0" align="center" cellpadding="0" cellspacing="0">
+				<tbody>
+				<tr>
+					<td height="45" align="left">账号或邮箱：
+						<label style="margin:0px;padding:0px;">
+							<input name="user_id" id="user_id" type="text" title="账号或邮箱" class="iInput" size="28" value="">
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<td height="45" align="left">密　　　码：
+					<input name="pwd" id="pwd" type="password" class="iInput" value="" size="28" autocomplete="off"> <span style="margin-left:10px;font-size:12px;"><a href="/retrieve_pwd">忘记密码?</a></span>
+					</td>
+				</tr>
+				<tr>
+					<td height="45" style="padding-left:75px">
+						<input type="checkbox" name="save_pwd" checked="checked" value="on">
+						<span style="color:#666;font-size:12px;">下次自动登录</span>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					<div style="padding-left:80px;margin-left:10px;padding-top:20px;padding-bottom:25px">
+						<label><input name="submit" type="submit" style="padding:4px 20px;font-size:12px;" value="登录"></label>
+					</div>
+					</td>
+				</tr>
+				</tbody>
+			</table>
+			<% end %>
+		</div>
+	</div>
+</div>

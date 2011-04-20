@@ -1,0 +1,11 @@
+
+<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <a href="/news">新闻</a></div>
+
+<div class="Main">
+	<div class="box">
+		<div class="box_title clearfix"><h5><%= @topic.title %></h5></div>
+		<div class="topic_title"><%= @topic.title %></div>
+		<div class="topic_date"><%= @topic.created_at.strftime("%Y-%m-%d") %></div>
+		<div class="topic_content"><%= @topic.content %></div>
+	</div>
+</div>

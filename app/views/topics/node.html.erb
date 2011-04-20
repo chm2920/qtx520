@@ -1,0 +1,36 @@
+
+<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <%= @node.name %></div>
+
+<div class="box">
+	<div class="node_block">
+		<h2><%= @node.name %></h2>
+		<ul class="clearfix">
+		<% for category in @categories %>
+			<li><a href="<%= category.show_url %>"><%= category.name %></a></li>
+		<% end %>
+		</ul>
+	</div>
+</div>
+<div class="Main">
+	<div class="box">
+		<div class="thead clearfix">
+			<div style="float:left;display:inline;width:500px;text-align:center;font-size:14px;font-weight:bold;color:#666;">信息标题</div>
+			<div style="float:right;display:inline;width:120px;text-align:left;font-size:14px;font-weight:bold;color:#666;">发布时间</div>
+		</div>
+		<ul class="topics_list_ul">
+			<% i = 1 %>
+			<% for topic in @topics %>
+			<li>
+				<span><%= topic.created_at.strftime("%Y-%m-%d") %></span>
+				<%= i %>. <a href="<%= topic.show_url %>" title="<%= topic.title %>" target="_blank"><%= topic.title %></a>
+			</li>
+			<% i = i + 1 %>
+			<% end %>
+		</ul>
+		<div class="pagination">
+			<%= will_paginate @topics %>
+		</div>
+	</div>
+</div>
+<div class="Side">
+</div>

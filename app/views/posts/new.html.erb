@@ -1,0 +1,32 @@
+
+<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <a href="/posts">社区</a> &gt; <span>发新帖</span></div>
+
+<div class="Main">
+	<div class="box">
+		<div class="box_title clearfix"><h5>发新帖</h5></div>
+		<div class="box_post_new">
+			<%= form_tag "/posts" do %>
+			<div class="box_post_item clearfix">
+				<div class="box_post_label">标题：</div>
+				<div class="box_post_input">
+					<input type="text" name="post[title]" />
+				</div>
+			</div>
+			<div class="box_post_item clearfix">
+				<div class="box_post_label">内容：</div>
+				<div class="box_post_input">
+					<textarea name="post[content]" id="post_content"></textarea>
+				</div>
+			</div>
+			<div class="box_post_submit">
+				<input type="submit" name="submit" value="提交" />
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="Side">
+	<div class="box" style="padding:20px;">
+		<a href="/posts/new">发新帖</a>
+	</div>
+</div>
