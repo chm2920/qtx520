@@ -15,7 +15,7 @@
 			<td style="vertical-align:top;">
 				<div class="post_time"><span>楼主</span>发表于 <%= @post.created_at.strftime("%m月%d日 %H点%M分") %></div>
 				<div class="post_content">
-				<%= @post.content %>
+				<%= @post.content.html_safe %>
 				</div>
 			</td>
 		</tr>
