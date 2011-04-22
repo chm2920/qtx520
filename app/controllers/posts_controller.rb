@@ -1,7 +1,9 @@
+#encoding: utf-8
 class PostsController < ApplicationController
   
   def index
     @posts = Post.paginate :page => params[:page], :per_page => 15, :order => "id desc"
+    @page_title = "社区"
   end
   
   def new
@@ -34,6 +36,9 @@ class PostsController < ApplicationController
       @page = 1
     end
     @replies = Reply.paginate :page => @page, :per_page => @per_page, :conditions => "post_id = #{@post.id}", :order => "id asc"
+    @page_title = @post.title
+    @keywords = @post.title
+    @description = @post.title
   end
   
   def reply
