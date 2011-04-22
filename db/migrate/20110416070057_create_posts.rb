@@ -1,10 +1,11 @@
 class CreatePosts < ActiveRecord::Migration
   def self.up
     create_table :posts do |t|
-      t.integer :post_id
       t.integer :user_id
       t.string :title
       t.string :content
+      t.integer :hits
+      t.integer :reply_count
       t.integer :status
 
       t.timestamps

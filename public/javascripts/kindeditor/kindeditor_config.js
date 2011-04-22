@@ -1,5 +1,5 @@
 KE.show({
     id : 'kindeditor',
-    allowFileManager : true,
+    allowFileManager : false,
     imageUploadJson:'/kindeditor/upload'
 });

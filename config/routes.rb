@@ -16,6 +16,8 @@ Qtx520::Application.routes.draw do
   match "news/(:date)_(:id).html" => "news_topics#show"
   match "news" => "news_topics#index"
   
+  match "/reply" => "posts#reply"
+  match "/reply_rst/(:id)" => "posts#reply_rst"
   resources :posts
   
   match "publish" => "topics#new"
@@ -36,19 +38,10 @@ Qtx520::Application.routes.draw do
   namespace :admin do
     get "topics/index"
     post "topics/index"
-    get "topics/null"
-    post "topics/null"
     resources :topics
     
     get "posts/index"
     post "posts/index"
-    get "posts/all"
-    post "posts/all"
-    get "posts/import"
-    post "posts/import"
-    get "posts/get_article"
-    get "posts/set_cover"
-    get "posts/get_post"
     resources :posts
     
     get "news_categories/index"

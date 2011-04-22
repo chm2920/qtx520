@@ -2,8 +2,11 @@
     padding: 3px;
     margin: 3px;
 }
+.pagination em{
+	font-style:normal;
+}
 .pagination a {
-    padding: 2px 5px 2px 5px;
+    padding: 4px 5px 4px 5px;
     margin: 2px;
     border: 1px solid #aaaadd;
     text-decoration: none;

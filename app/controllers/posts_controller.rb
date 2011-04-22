@@ -15,6 +15,9 @@ class PostsController < ApplicationController
   def create
     if !session[:user_id].nil?
       @post = Post.new(params[:post])
+      @post.user_id = session[:user_id]
+      @post.hits = 0
+      @post.reply_count = 0
       @post.save
       redirect_to @post.show_url
     else
@@ -24,6 +27,43 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @per_page = 10
+    if !params[:page].nil?
+      @page = params[:page].to_i
+    else
+      @page = 1
+    end
+    @replies = Reply.paginate :page => @page, :per_page => @per_page, :conditions => "post_id = #{@post.id}", :order => "id asc"
+  end
+  
+  def reply
+    
+  end
+  
+  def reply_rst
+    if request.post?
+      if !session[:user_id].nil?
+        begin
+          @post = Post.find(params[:id])
+          @reply = Reply.new(params[:reply])
+          @reply.post_id = @post.id
+          @reply.user_id = session[:user_id]
+          @reply.save!
+          @post.reply_count += 1
+          @post.save!
+        rescue Exception => e
+          ActiveRecord::Rollback
+          record_error(e)
+          render :action => "show", :id => params[:id]
+        else
+          redirect_to @post.show_url
+        end
+      else
+        redirect_to "/login"
+      end
+    else
+      redirect_to "/reply"
+    end
   end
   
 end

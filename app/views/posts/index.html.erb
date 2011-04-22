@@ -1,24 +1,30 @@
 
-<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <span>社区</span></div>
+<div class="position">
+	<span style="float:right;padding-right:20px;"><a href="/posts/new">发新帖</a></span>
+	当前位置： &gt; <a href="/">网站首页</a> &gt; <span>社区</span>
+</div>
 
-<div class="Main">
-	<div class="box">
-		<div class="box_title clearfix"><h5>所有帖子</h5></div>
-		<ul class="news_list_ul">
+<div class="box">
+	<div class="posts_list">
+		<div class="thead clearfix">
+			<div class="td_m post_title">标题</div>
+			<div class="td_m post_author">作者</div>
+			<div class="td_m post_time">时间</div>
+			<div class="td_m post_hits">回复 / 点击</div>
+		</div>
+		<div class="tboby">
 		<% for post in @posts %>
-			<li>
-				<span><%= post.created_at.strftime("%Y-%m-%d") %></span>
-				<a href="<%= post.show_url %>" title="<%= post.title %>" target="_blank"><%= post.title %></a>
-			</li>
+			<div class="item_block clearfix">
+				<div class="item_a"><a href="<%= post.show_url %>" title="<%= post.title %>" target="_blank"><%= post.title %></a></div>
+				<div class="td_m item_b"><%= post.user.username %></div>
+				<div class="td_m item_c"><%= post.created_at.strftime("%Y-%m-%d %H:%M") %></div>
+				<div class="td_m item_d"><span><%= post.reply_count %></span>/<%= post.hits %></div>
+			</div>
 		<% end %>
-		</ul>
-		<div class="pagination">
+		</div>
+		<div class="paginate">
+			<span style="float:right;padding-right:20px;"><a href="/posts/new">发新帖</a></span>
 			<%= will_paginate @posts %>
 		</div>
-	</div>
-</div>
-<div class="Side">
-	<div class="box" style="padding:20px;">
-		<a href="/posts/new">发新帖</a>
 	</div>
 </div>

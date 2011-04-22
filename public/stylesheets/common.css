@@ -63,6 +63,13 @@ input, option, select, textarea, button {font-size: 12px;}
 .Side{float:right;display:inline;width:192px;}
 .Main{float:left;display:inline;width:758px;}
 
+.pagination{padding: 3px;margin: 3px;}
+.pagination em{font-style:normal;}
+.pagination a{padding: 4px 5px 4px 5px;margin: 2px;border: 1px solid #aaaadd;text-decoration: none;color: #000099;}
+.pagination a:hover, .pagination a:active{border: 1px solid #000099;color: #000;}
+.pagination span.current{padding: 2px 5px 2px 5px;margin: 2px;border: 1px solid #000099;font-weight: bold;background-color: #000099;color: #FFF;}
+.pagination span.disabled{padding: 2px 5px 2px 5px;margin: 2px;border: 1px solid #eee;color: #aaa;}
+
 .box{border:1px solid #DDD;margin-top:10px;}
 	.box_title{padding:8px 18px;background:#FBFBFB;border-bottom:1px solid #EBEBEB;}
 	.box_title h3{font-size:18px;font-weight:bold;color:#333;}

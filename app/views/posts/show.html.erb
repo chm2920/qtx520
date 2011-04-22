@@ -1,11 +1,70 @@
 
-<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <span>社区</span></div>
-
-<div class="Main">
-	<div class="box">
-		<div class="box_title clearfix"><h5><%= @post.title %></h5></div>
-		<div class="topic_title"><%= @post.title %></div>
-		<div class="topic_date"><%= @post.created_at.strftime("%Y-%m-%d") %></div>
-		<div class="topic_content"><%= @post.content %></div>
+<div class="position">
+	<span style="float:right;padding-right:20px;"><a href="/posts/new">发新帖</a></span>
+	当前位置： &gt; <a href="/">网站首页</a> &gt; <a href="/posts">社区</a> &gt; <span><%= @post.title %></span>
+</div>
+<% if @page==1 %>
+<div class="box">
+	<div class="box_title clearfix"><h5><%= @post.title %></h5></div>
+	<table class="post_table">
+		<tr>
+			<td class="post_user">
+				<p>作者：<%= @post.user.username if @post.user %></p>
+				<p>注册时间：<%= @post.user.created_at.strftime("%Y年%m月%d日") %></p>
+			</td>
+			<td style="vertical-align:top;">
+				<div class="post_time"><span>楼主</span>发表于 <%= @post.created_at.strftime("%m月%d日 %H点%M分") %></div>
+				<div class="post_content">
+				<%= @post.content %>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="post_blank"></td>
+			<td class="post_oper"><a href="javascript:void(0)" title="顶部" onclick="scroll(0,0)">TOP</a></td>
+		</tr>
+	</table>
+</div>
+<% end %>
+<% i = 2 %>
+<% for reply in @replies %>
+<div class="box">
+	<table class="post_table">
+		<tr>
+			<td class="post_user">
+				<p>作者：<%= reply.user.username if @post.user %></p>
+				<p>注册时间：<%= reply.user.created_at.strftime("%Y年%m月%d日") %></p>
+			</td>
+			<td style="vertical-align:top;">
+				<div class="post_time"><span><%= (@page-1)*@per_page + i %> 楼</span>发表于 <%= reply.created_at.strftime("%m月%d日 %H点%M分") %></div>
+				<div class="post_content">
+				<%= reply.content %>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="post_blank"></td>
+			<td class="post_oper"><a href="javascript:void(0)" title="顶部" onclick="scroll(0,0)">TOP</a></td>
+		</tr>
+	</table>
+</div>
+<% i += 1 %>
+<% end %>
+<div class="post_buttons clearfix">
+	<span style="float:right;"><a href="/posts/new">发新帖</a></span>
+	<%= will_paginate @replies %>
+</div>
+<div class="box">
+	<div class="box_title clearfix"><h5>快速回复</h5></div>
+	<div class="post_post_new">
+		<%= form_tag "/reply_rst/#{@post.id}" do %>
+		<div class="clearfix">
+			<div class="post_new_label">回复内容</div>
+			<div class="post_new_input">
+				<textarea name="reply[content]" id="kindeditor"></textarea>
+			</div>
+		</div>
+		<div class="post_submit"><input type="submit" name="post_submit" value="写好了，发表回复" /></div>
+		<% end %>
 	</div>
 </div>
