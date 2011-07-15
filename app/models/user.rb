@@ -23,7 +23,16 @@ class User < ActiveRecord::Base
         user
       end
     else
-      nil
+      user = self.find_by_username(email)
+      if user
+        if user.encrypted_password(password).to_s!=user.password.to_s
+          nil
+        else
+          user
+        end
+      else
+        nil
+      end
     end
   end
   

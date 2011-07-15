@@ -41,7 +41,6 @@ class TopicsController < ApplicationController
           @topic.save!
           if !params[:topic_image].nil?
             0.upto params[:topic_image].length-1 do |i|
-              puts params[:topic_image][i.to_s]
               @topic_image = TopicImage.new()
               @topic_image.image = params[:topic_image][i.to_s][:image]
               @topic_image.topic_id = @topic.id

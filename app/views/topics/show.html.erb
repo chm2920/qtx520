@@ -8,12 +8,29 @@
 				<div style="float:left;display:inline;width:400px;">
 					<div style="font-size:18px;font-weight:bold;color:#2b5da6;line-height:40px;"><%= @topic.title %></div>
 					<ul class="topic_info">
-						<li><span>联系电话：</span><%= @topic.phone %></li>
 						<li><span>发布者所属地区：</span><%= @topic.city %></li>
 						<li><span>联 系 人：</span><%= @topic.contact %></li>
-						<li><span>发布者发布地区：</span><%= @topic.phone %></li>
-						<li><span>有效期限：</span><%= @topic.validate_date %></li>
-						<li><span>浏览次数：</span><%= @topic.phone %></li>
+						<% if !session[:user_id].nil? %>
+						<li><span>联系电话：</span><%= @topic.phone %></li>
+						<% else %>
+						<li><span>联系电话：</span><span style="color:#FF0000;">请<a href="/login">登录</a>后查看</span></li>
+						<% end %>
+						<!--li><span>发布者发布地区：</span><%= @topic.phone %></li-->
+						<li><span>有效期限：</span>
+						<% case @topic.validate_date.to_i %>
+						<% when 1 %>
+						<%= (@topic.created_at + 1.month).strftime("%Y-%m-%d") %>
+						<% when 2 %>
+						<%= (@topic.created_at + 2.month).strftime("%Y-%m-%d") %>
+						<% when 3 %>
+						<%= (@topic.created_at + 1.year).strftime("%Y-%m-%d") %>
+						<% when 4 %>
+						长期有效
+						<% else %>
+						<%= @topic.validate_date %>
+						<% end %>
+						</li>
+						<!--li><span>浏览次数：</span><%= @topic.phone %></li-->
 						<li><span>发布时间：</span><%= @topic.created_at.strftime("%Y-%m-%d %H:%M:%S") %></li>
 					</ul>
 				</div>
@@ -22,6 +39,13 @@
 			</div>
 			<div class="topic_txt">
 				<%= @topic.content %>
+				<% if @topic.topic_images.length > 0 %>
+				<div style="margin-top:80px;">
+					<% for img in @topic.topic_images %>
+					<p><img src="<%= img.image %>" /></p>
+					<% end %>
+				</div>
+				<% end %>
 			</div>
 			<div class="topic_note">
 				<p style="color:#000;">请直接与我联系</p>

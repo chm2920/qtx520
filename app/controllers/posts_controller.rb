@@ -29,6 +29,8 @@ class PostsController < ApplicationController
   
   def show
     @post = Post.find(params[:id])
+    @post.hits = @post.hits + 1
+    @post.save
     @per_page = 10
     if !params[:page].nil?
       @page = params[:page].to_i

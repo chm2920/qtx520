@@ -51,8 +51,8 @@
 <% i += 1 %>
 <% end %>
 <div class="post_buttons clearfix">
-	<span style="float:right;"><a href="/posts/new">发新帖</a></span>
-	<%= will_paginate @replies %>
+	<span style="float:right;"><%= will_paginate @replies %></span>
+	<a href="/posts/new">发新帖</a>
 </div>
 <div class="box">
 	<div class="box_title clearfix"><h5>快速回复</h5></div>
