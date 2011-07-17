@@ -38,7 +38,7 @@
 			<td style="vertical-align:top;">
 				<div class="post_time"><span><%= (@page-1)*@per_page + i %> 楼</span>发表于 <%= reply.created_at.strftime("%m月%d日 %H点%M分") %></div>
 				<div class="post_content">
-				<%= reply.content %>
+				<%= simple_format reply.content %>
 				</div>
 			</td>
 		</tr>
