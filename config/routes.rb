@@ -20,6 +20,8 @@ Qtx520::Application.routes.draw do
   match "/reply_rst/(:id)" => "posts#reply_rst"
   resources :posts
   
+  resources :signs
+  
   match "publish" => "topics#new"
   match "publish_post" => "topics#create"
   
@@ -43,6 +45,14 @@ Qtx520::Application.routes.draw do
     get "posts/index"
     post "posts/index"
     resources :posts
+    
+    get "sign_categories/index"
+    post "sign_categories/index"
+    resources :sign_categories
+    
+    get "signs/index"
+    post "signs/index"
+    resources :signs
     
     get "news_categories/index"
     post "news_categories/index"

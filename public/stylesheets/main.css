@@ -123,3 +123,20 @@
 	.post_submit{margin-left:100px;margin-top:10px;}
 	.post_submit input{padding:6px 20px;}
 
+/* signs */
+.sign_categories{padding:40px 60px;}
+.sign_categories h4{font-size:14px;font-weight:bold;}
+.sign_categories h4 span{margin-left:10px;color:#FF0000;}
+.sign_categories ul{margin-top:40px;}
+.sign_categories ul li{float:left;display:inline;width:120px;height:40px;}
+
+.signs{padding:30px 30px;}
+.signs ul{margin-top:0px;}
+.signs ul li{float:left;display:inline;width:190px;height:200px;line-height:23px;font-size:14px;padding:20px 16px;border:1px solid #F4F4F4;background:#fbf2aa;}
+.signs p{margin:0 auto;padding-top:20px;}
+
+.sign_categories_s{padding:10px 10px 20px 10px;}
+.sign_categories_s p{padding:10px;font-size:14px;font-weight:bold;}
+.sign_categories_s ul{padding:10px 0 0 10px;}
+.sign_categories_s ul li{float:left;display:inline;width:80px;line-height:26px;}
+.sign_categories_s ul li a{font-size:12px;}

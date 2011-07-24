@@ -1,0 +1,25 @@
+
+<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <a href="/signs">个性签名</a> &gt; <%= @sign_category.name %></div>
+
+<div class="Main">
+	<div class="box">
+		<div class="signs">
+			<ul class="clearfix">
+				<% for sign in @signs %>
+				<li><%= sign.vs %></li>
+				<% end %>
+			</ul>
+			<p><%= will_paginate @signs %></p>
+		</div>
+	</div>
+</div>
+<div class="Side">
+	<div class="box sign_categories_s">
+		<p>个性签名</p>
+		<ul class="clearfix">
+			<% for sign_category in @sign_categories %>
+			<li><a href="/signs/<%= sign_category.id %>"><%= sign_category.name %></a></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

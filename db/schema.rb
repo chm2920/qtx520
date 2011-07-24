@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110421143541) do
+ActiveRecord::Schema.define(:version => 20110724085945) do
 
   create_table "admins", :force => true do |t|
     t.string   "adminname"
@@ -88,6 +88,15 @@ ActiveRecord::Schema.define(:version => 20110421143541) do
     t.string   "log_exception"
     t.string   "log_remote_ip"
     t.datetime "created_at"
+  end
+
+  create_table "sign_categories", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "signs", :force => true do |t|
+    t.integer "sign_category_id"
+    t.string  "vs"
   end
 
   create_table "topic_images", :force => true do |t|

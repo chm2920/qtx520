@@ -1,0 +1,15 @@
+
+<div class="position">当前位置： &gt; <a href="/">网站首页</a> &gt; <a href="/signs">个性签名</a></div>
+
+<div class="Main">
+	<div class="box">
+		<div class="sign_categories">
+			<h4>个性签名<span>分类</span></h4>
+			<ul class="clearfix">
+				<% for sign_category in @sign_categories %>
+				<li><a href="/signs/<%= sign_category.id %>"><%= sign_category.name %></a></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>
