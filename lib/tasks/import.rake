@@ -14,7 +14,7 @@ task(:import_xml => :environment) do
   hsh = Hash.from_xml(result)
   for sign_category in hsh["sign_categories"]["sign_category"]
     t = SignCategory.new
-    t.name = topic["name"]
+    t.name = sign_category["name"]
     t.save
   end
   
