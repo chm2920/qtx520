@@ -248,7 +248,7 @@ if(typeof jQuery != 'undefined') {
 		$.fn.loopedSlider.defaults = {
 			container: ".container", //Class/id of main container. You can use "#container" for an id.
 			slides: ".slides", //Class/id of slide container. You can use "#slides" for an id.
-			pagination: "pagination", //Class name of parent ul for numbered links. Don't add a "." here.
+			pagination: "slider_pagination", //Class name of parent ul for numbered links. Don't add a "." here.
 			containerClick: false, //Click slider to goto next slide? true/false
 			autoStart: 5000, //Set to positive number for true. This number will be the time between transitions.
 			restart: 0, //Set to positive number for true. Sets time until autoStart is restarted.

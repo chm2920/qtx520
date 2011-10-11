@@ -38,7 +38,7 @@
 				</div>
 			</div>
 			<div class="topic_txt">
-				<%= @topic.content %>
+				<%= simple_format(@topic.content).html_safe %>
 				<% if @topic.topic_images.length > 0 %>
 				<div style="margin-top:80px;">
 					<% for img in @topic.topic_images %>

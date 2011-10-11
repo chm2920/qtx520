@@ -78,6 +78,10 @@ Qtx520::Application.routes.draw do
     post "run_logs/index"
     resources :run_logs
     
+    get "proc_logs/index"
+    post "proc_logs/index"
+    resources :proc_logs
+    
     get "users/index"
     post "users/index"
     resources :users
