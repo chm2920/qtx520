@@ -32,10 +32,11 @@
 			<% if session[:username].nil? %>
 			您好，欢迎光临&nbsp;
 			<a href="/login">[请登录]</a>
-			<a href="/reg">[注册]</a>|&nbsp;<a href="/publish">立即发布信息</a>
+			<a href="/reg">[注册]</a>
 			<% else %>
-			欢迎您，<a><%= session[:username] %></a><a href="/logout">[退出]</a>|&nbsp;&nbsp;<a href="/publish">立即发布信息</a>
+			欢迎您，<a><%= session[:username] %></a><a href="/logout">[退出]</a>
 			<% end %>
+			|&nbsp;&nbsp;<a href="/publish" class="pub">立即免费发布信息</a>
 		</div>
 	</div>
 	<div id="Header" class="clearfix">

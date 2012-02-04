@@ -4,6 +4,8 @@ form,ul,ul li,p{margin:0;padding:0;}
 ul, ul li{list-style:none;}
 a{color:#006FFD;text-decoration:none;}
 a:hover{color:#006FFD;text-decoration:underline;}
+a.pub{color:#FF0000 !important;text-decoration:none;}
+a.pub:hover{text-decoration:underline;}
 img{border:0px;}
 .clearfix:after {content:"."; display:block; height:0; clear:both; visibility:hidden; }
 * html>body .clearfix { display:inline-block; width:100%; }

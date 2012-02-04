@@ -35,11 +35,13 @@
 	.publish_tb td{vertical-align:top;line-height:25px;padding:8px 0;}
 .publish_tb_label{width:60px;padding-left:20px !important;}
 .publish_tb_label2{width:150px;padding-right:10px !important;text-align:right;}
-.select_nodes{line-height:25px;}
-	.select_nodes a{margin-right:20px;color:#333;}
-	.select_nodes a.current{color:#006FFD;}
-.select_categories{border:1px solid #CCC;padding:10px 0;line-height:25px;}
+.select_nodes{height:32px;padding:0px 10px;border-bottom:1px solid #CFD5D9;}
+	.select_nodes a{display:inline-block;width:70px;height:25px;margin-right:4px;padding:3px 0px;text-align:center;background:#F6F6F6;color:#333;border:1px solid #CCC;border-bottom:0;}
+	.select_nodes a.current{color:#006FFD;padding-bottom:4px;background:#FFF;}
+	.select_nodes a:hover{text-decoration:none;}
+.select_categories{padding:10px 0;line-height:25px;}
 	.select_categories span{float:left;display:block;margin-left:10px;}
+	.select_categories label{cursor:pointer;}
 	.select_categories input{margin-right:4px;}
 .pub_select{padding:1px 2px;font-size:12px;}
 .pub_text{width:560px;height:200px;padding:4px;line-height:22px;font-size:12px;}

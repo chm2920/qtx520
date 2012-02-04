@@ -2,6 +2,7 @@
 function showcategories(n_id){
 	$('.select_categories').hide();
 	$('#categories_node_' + n_id).show();
+	$('#categories_node_' + n_id).find('input:first').attr('checked', true);
 	$('.select_nodes a').removeClass('current');
 	$('#node_' + n_id).addClass('current');
 }
@@ -39,7 +40,7 @@ $(document).ready(function(){
 						<% for node in @nodes %>
 						<div id="categories_node_<%= node.id %>" class="select_categories clearfix" style="display:none;">
 							<% for category in node.categories %>
-							<span><input type="radio" name="topic[category_id]" id="topic_category_id" value="<%= category.id %>" /><%= category.name %></span>
+							<span><label><input type="radio" name="topic[category_id]" id="topic_category_id" value="<%= category.id %>" /><%= category.name %></label></span>
 							<% end %>
 						</div>
 						<% end %>
