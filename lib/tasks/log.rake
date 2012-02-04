@@ -1,16 +1,24 @@
-# coding: utf-8
+#encoding: utf-8
 
 desc "production log"
 task(:proc_log => :environment) do
   path = "#{RAILS_ROOT}/log/production.log"
   data = File.open(path, "r:utf-8").read
+  ic = Iconv.new('UTF-8//IGNORE', 'UTF-8')
+  data = ic.iconv(data)
   
   arr = data.split('Started')
+  arr = arr.reject(& :blank?)
+  arr.reverse!
   i = 0
   l = arr.length
+  ProcLog.destroy_all
   arr.each do |p|
     if p.strip != ""
       i = i + 1
+      if i > 30
+        break
+      end
       puts i.to_s + ' of ' + l.to_s
       @method = ''
       @url = ''
@@ -19,7 +27,7 @@ task(:proc_log => :environment) do
       @completed = ''
       @views = ''
       @activerecord = ''
-      p.scan(/(.*?)"\/(.*?)" for(.*?) at(.*?)\+0400/m) do |method, url, ip, visit_time|
+      p.scan(/(.*?)"\/(.*?)" for(.*?) at(.*?)\+0(.*?)00/m) do |method, url, ip, visit_time|
         @method = method.to_s.strip
         @url = url.to_s.strip
         @ip = ip.to_s.strip

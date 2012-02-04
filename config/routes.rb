@@ -76,6 +76,7 @@ Qtx520::Application.routes.draw do
     
     get "run_logs/index"
     post "run_logs/index"
+    get "run_logs/clear"
     resources :run_logs
     
     get "proc_logs/index"

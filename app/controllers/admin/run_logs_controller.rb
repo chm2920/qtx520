@@ -13,4 +13,9 @@ class Admin::RunLogsController < Admin::AdminBackEndController
     redirect_to :action => :index
   end
   
+  def clear
+    RunLog.destroy_all
+    redirect_to :action => :index
+  end
+  
 end
