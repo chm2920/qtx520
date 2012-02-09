@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110911024702) do
+ActiveRecord::Schema.define(:version => 20120209155939) do
 
   create_table "admins", :force => true do |t|
     t.string   "adminname"
@@ -31,10 +31,22 @@ ActiveRecord::Schema.define(:version => 20110911024702) do
     t.datetime "updated_at"
   end
 
+  create_table "fl_categories", :force => true do |t|
+    t.string "name"
+  end
+
   create_table "flashpics", :force => true do |t|
     t.string "title"
     t.string "image_file_name"
     t.string "url"
+  end
+
+  create_table "fls", :force => true do |t|
+    t.integer  "fl_category_id"
+    t.string   "title"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "kindeditor_images", :force => true do |t|

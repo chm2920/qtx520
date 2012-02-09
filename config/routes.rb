@@ -54,6 +54,14 @@ Qtx520::Application.routes.draw do
     post "signs/index"
     resources :signs
     
+    get "fl_categories/index"
+    post "fl_categories/index"
+    resources :fl_categories
+    
+    get "fls/index"
+    post "fls/index"
+    resources :fls
+    
     get "news_categories/index"
     post "news_categories/index"
     resources :news_categories
