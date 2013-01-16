@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -15,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
   create_table "admins", :force => true do |t|
     t.string   "adminname"
     t.string   "password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "categories", :force => true do |t|
@@ -27,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
     t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "fl_categories", :force => true do |t|
@@ -45,8 +46,8 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
     t.integer  "fl_category_id"
     t.string   "title"
     t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "kindeditor_images", :force => true do |t|
@@ -54,8 +55,8 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
     t.string   "data_content_type"
     t.integer  "data_file_size"
     t.datetime "data_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "news_categories", :force => true do |t|
@@ -66,8 +67,8 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
     t.integer  "news_category_id"
     t.string   "title"
     t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "nodes", :force => true do |t|
@@ -81,8 +82,8 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
     t.integer  "hits"
     t.integer  "reply_count"
     t.integer  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "proc_logs", :force => true do |t|
@@ -93,16 +94,16 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
     t.string   "completed"
     t.string   "views"
     t.string   "activerecord"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "replies", :force => true do |t|
     t.integer  "post_id"
     t.integer  "user_id"
     t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "run_logs", :force => true do |t|
@@ -128,8 +129,8 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "topics", :force => true do |t|
@@ -145,8 +146,8 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
     t.string   "qq"
     t.string   "email"
     t.integer  "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -165,8 +166,8 @@ ActiveRecord::Schema.define(:version => 20120209155939) do
     t.string   "city"
     t.string   "address"
     t.string   "sign"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

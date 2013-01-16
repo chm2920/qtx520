@@ -49,7 +49,7 @@ Category.create(:node_id => node.id, :name => "技能交换")
 Category.create(:node_id => node.id, :name => "寻人寻友")
 Category.create(:node_id => node.id, :name => "其它")
 
-node = Node.create(:name => "车辆买卖服务")
+node = Node.create(:name => "车辆买卖")
 Category.create(:node_id => node.id, :name => "二手汽车买卖")
 Category.create(:node_id => node.id, :name => "租车/代驾")
 Category.create(:node_id => node.id, :name => "带车求职")

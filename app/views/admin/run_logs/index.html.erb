@@ -43,7 +43,7 @@
 					<td align="CENTER"><%= run_log.log_params %></td>
 					<td align="CENTER"><%= run_log.log_exception %></td>
 					<td align="CENTER"><%= run_log.log_remote_ip %></td>
-					<td align="CENTER"><%= run_log.created_at("%Y-%m-%d") %></td>
+					<td align="CENTER"><%= run_log.created_at.strftime("%Y-%m-%d") %></td>
 					<td align="CENTER">
 						<a href="/admin/run_logs/edit/<%= run_log.id %>">修改</a>&nbsp;|&nbsp;<%= link_to "删除", {:action => "destroy", :id => run_log}, :confirm => "确定删除？", :method => "delete" %>
 					</td>
